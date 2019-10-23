@@ -7,7 +7,7 @@ use nom::combinator::map;
 use nom::error::ErrorKind;
 use nom::IResult;
 use nom::sequence::tuple;
-use serde::{Deserialize, Serialize, Serializer};
+use serde::{Serialize, Serializer};
 use serde::ser::SerializeStruct;
 use ux::*;
 

@@ -1,7 +1,7 @@
 #[macro_use]
 extern crate lazy_static;
 
-use actix_web::{App, HttpResponse, HttpServer, Responder, web};
+use actix_web::{App, HttpServer, web};
 use serde::{Deserialize, Serialize};
 
 use crate::parser::ethernet_header::{ethernet_header, EthernetHeader};
@@ -55,10 +55,8 @@ fn index(data: web::Json<PackageData>) -> String {
 }
 
 fn main() {
-    use actix_web::{App, HttpServer};
-
     HttpServer::new(|| { App::new().service(web::resource("/").to(index)) })
-        .bind("127.0.0.1:8080")
+        .bind("0.0.0.0:8080")
         .unwrap()
         .run()
         .unwrap();
